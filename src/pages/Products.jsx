@@ -1,11 +1,14 @@
-import ProductCard from "../components/ProductCard.jsx";
+import { useRecoilValue } from "recoil";
+import ProductFilter from "../components/ProductFilter.jsx";
+import ProductsGrid from "../components/ProductsGrid.jsx";
+import { filteredProductList } from "../state/products.mjs";
 
-export default function Products({ products }) {
+export default function Products() {
+  const products = useRecoilValue(filteredProductList);
   return (
-    <div className="flex flex-row flex-wrap w-full justify-around">
-      {products.map((product) => {
-        return <ProductCard {...product} key={product.id} />;
-      })}
-    </div>
+    <>
+      <ProductFilter />
+      <ProductsGrid products={products} />
+    </>
   );
 }

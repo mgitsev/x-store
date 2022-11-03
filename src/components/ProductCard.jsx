@@ -4,20 +4,20 @@ import RatingStar from "./RatingStar";
 export default function ProductCard({ thumbnail, title, price, rating }) {
   const r = Math.round(rating);
   return (
-    <div className="w-full max-w-sm bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+    <div className="lg:m-5 m-2 w-full max-w-sm bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
       <div className="w-full flex flex-col items-center justify-start">
         <Link to="/">
           <img
-            className="rounded-t-lg object-fill min-h-[250px] max-h-[250px] w-full"
+            className="rounded-t-lg object-fill lg:min-h-[250px] lg:max-h-[250px] w-full"
             src={thumbnail}
             alt={title}
           />
         </Link>
       </div>
 
-      <div className="px-5 pb-5">
+      <div className="px-5 py-5">
         <Link to="/">
-          <h5 className="text-md font-semibold tracking-tight text-gray-900 dark:text-white">
+          <h5 className="text-lg font-semibold tracking-tight text-gray-900 dark:text-white text-center">
             {title}
           </h5>
         </Link>

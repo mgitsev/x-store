@@ -1,9 +1,13 @@
-export default function Home({ categories }) {
+import { useRecoilValue } from "recoil";
+import { productCategoriesState } from "../state/products.mjs";
+
+export default function Home() {
+  const categories = useRecoilValue(productCategoriesState);
   return (
-    <>
-      {categories.map((cat) => (
-        <div>{cat}</div>
-      ))}
-    </>
+    <div className="flex flex-col items-center">
+      {categories.map((cat, i) => {
+        return <div key={i}>{cat}</div>;
+      })}
+    </div>
   );
 }

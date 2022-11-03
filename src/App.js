@@ -14,8 +14,7 @@ export default function App() {
     getProducts()
       .then(({ products }) => setProducts(products))
       .catch((e) => console.log(e));
-    //getCategories().then((categories) => setCategories(categories));
-  }, []);
+  });
   return (
     <>
       <Navigation />

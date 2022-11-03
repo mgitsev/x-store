@@ -1,8 +1,8 @@
 import { useRecoilValue } from "recoil";
-import { productCategoriesState } from "../state/products.mjs";
+import { productCategories } from "../state/categories.mjs";
 
 export default function Home() {
-  const categories = useRecoilValue(productCategoriesState);
+  const categories = useRecoilValue(productCategories);
   return (
     <div className="flex flex-col items-center">
       {categories.map((cat, i) => {

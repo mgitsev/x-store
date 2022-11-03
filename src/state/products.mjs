@@ -1,58 +1,21 @@
 import { atom, selector } from "recoil";
 
-export const productCategoriesState = atom({
-  key: "ProductCategories",
-  default: [
-    "all",
-    "smartphones",
-    "laptops",
-    "fragrances",
-    "skincare",
-    "groceries",
-    "home-decoration",
-    "furniture",
-    "tops",
-    "womens-dresses",
-    "womens-shoes",
-    "mens-shirts",
-    "mens-shoes",
-    "mens-watches",
-    "womens-watches",
-    "womens-bags",
-    "womens-jewellery",
-    "sunglasses",
-    "automotive",
-    "motorcycle",
-    "lighting",
-  ].sort((a, b) => a > b),
-});
-
-export const productSorterState = atom({
-  key: "SorterState",
-  default: ["price", "rating"],
-});
-
-export const productSorterTypeState = atom({
-  key: "SorterTypeState",
-  default: ["ascending", "descending"],
-});
-
 export const productListState = atom({
   key: "Products",
   default: [],
 });
 
-export const productListFilterState = atom({
-  key: "ProductsByCategoryFilter",
+export const categoryFilterState = atom({
+  key: "CategoryFilter",
   default: "all",
 });
 
-export const productListSorterState = atom({
+export const sorterState = atom({
   key: "ProductSorter",
   default: "price",
 });
 
-export const productListSorterTypeState = atom({
+export const sorterTypeState = atom({
   key: "ProductSorterType",
   default: "ascending",
 });
@@ -60,9 +23,9 @@ export const productListSorterTypeState = atom({
 export const filteredProductList = selector({
   key: "FilteredByCategoryProductList",
   get: ({ get }) => {
-    const filter = get(productListFilterState);
-    const sorter = get(productListSorterState);
-    const sorterType = get(productListSorterTypeState);
+    const filter = get(categoryFilterState);
+    const sorter = get(sorterState);
+    const sorterType = get(sorterTypeState);
     const list = get(productListState);
     const res =
       filter === "all"

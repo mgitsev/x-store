@@ -1,5 +1,5 @@
 import { useRecoilValue } from "recoil";
-import ProductFilter from "../components/ProductFilter.jsx";
+import ProductFilter from "../components/ProductFilter/index";
 import ProductsGrid from "../components/ProductsGrid.jsx";
 import { filteredProductList } from "../state/products.mjs";
 

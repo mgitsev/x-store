@@ -18,7 +18,7 @@ export default function App() {
   return (
     <>
       <Navigation />
-      <main className="px-10 py-5">
+      <main className="mx-auto py-5 flex flex-col items-center gap-4 bg-gray-100">
         <Routes>
           <Route path="/" element={<Home categories={["categories"]} />} />
           <Route path="/products" element={<Products />} />

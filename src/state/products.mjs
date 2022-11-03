@@ -27,12 +27,12 @@ export const filteredProductList = selector({
     const sorter = get(sorterState);
     const sorterType = get(sorterTypeState);
     const list = get(productListState);
-    let res =
+    const res =
       filter === "all"
         ? list
         : list.filter((product) => product.category === filter);
 
-    return res.sort((a, b) => {
+    return [...res].sort((a, b) => {
       return sorterType === "ascending"
         ? a[sorter] - b[sorter]
         : b[sorter] - a[sorter];

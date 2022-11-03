@@ -4,11 +4,11 @@ import RatingStar from "./RatingStar";
 export default function ProductCard({ thumbnail, title, price, rating }) {
   const r = Math.round(rating);
   return (
-    <div className="lg:m-5 m-2 w-full max-w-sm bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+    <div className="my-5 w-80 max-w-sm bg-white rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700">
       <div className="w-full flex flex-col items-center justify-start">
         <Link to="/">
           <img
-            className="rounded-t-lg object-fill lg:min-h-[250px] lg:max-h-[250px] w-full"
+            className="rounded-t-lg object-fill min-h-[250px] max-h-[250px] max-w-xs"
             src={thumbnail}
             alt={title}
           />
@@ -24,7 +24,7 @@ export default function ProductCard({ thumbnail, title, price, rating }) {
         <div className="flex items-center mt-2.5 mb-5">
           {[...Array(5)].map((_, i) => {
             const color = r >= i + 1 ? "yellow" : "grey";
-            return <RatingStar color={color} id={i + 1} key={i}/>;
+            return <RatingStar color={color} id={i + 1} key={i} />;
           })}
           <span className="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">
             {rating}

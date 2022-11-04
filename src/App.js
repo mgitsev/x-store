@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { getProducts } from "./apis/products.mjs";
 import { useSetRecoilState } from "recoil";
 import { productListState } from "./state/products.mjs";
+import Product from "./pages/Product";
 
 export default function App() {
   const setProducts = useSetRecoilState(productListState);
@@ -22,6 +23,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home categories={["categories"]} />} />
           <Route path="/products" element={<Products />} />
+          <Route path="/products/:id" element={<Product />} />
         </Routes>
       </main>
     </>

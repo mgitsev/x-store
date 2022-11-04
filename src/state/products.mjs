@@ -1,4 +1,4 @@
-import { atom, selector } from "recoil";
+import { atom, selector, selectorFamily } from "recoil";
 
 export const productListState = atom({
   key: "Products",
@@ -38,4 +38,17 @@ export const filteredProductList = selector({
         : b[sorter] - a[sorter];
     });
   },
+});
+
+export const currentProduct = selectorFamily({
+  key: "CurrentProduct",
+  get:
+    (id) =>
+    ({ get }) => {
+      const list = get(productListState);
+      const res = list.find((prod) => {
+        return Number(prod.id) === Number(id);
+      });
+      return res;
+    },
 });

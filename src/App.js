@@ -17,7 +17,7 @@ export default function App() {
     getProducts()
       .then(({ products }) => setProducts(products))
       .catch((e) => navi("/404"));
-  });
+  }, []);
   return (
     <>
       <Navigation />

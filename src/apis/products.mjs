@@ -4,10 +4,17 @@ const baseURL = "https://dummyjson.com/products";
 export async function getProducts(limit = 100, skip = 0) {
   const url = `${baseURL}?limit=${limit}&skip=${skip}`;
   try {
-    const { data } = await axios.get(url);
+    const { data } = await axios.get(url, {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Set-Cookie",
+        "Content-Type": "application/json",
+        "SameSite": "None",
+      },
+    });
     return data;
   } catch (err) {
-    throw err
+    throw err;
   }
 }
 
